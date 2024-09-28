@@ -73,6 +73,10 @@ fn main() {
 
     let mut cfg = cc::Build::new();
 
+    if target == "wasm32-wasip1-threads" {
+        cfg.flag("-pthread");
+    }
+
     // Situations where we build unconditionally.
     //
     // MSVC basically never has it preinstalled, MinGW picks up a bunch of weird
